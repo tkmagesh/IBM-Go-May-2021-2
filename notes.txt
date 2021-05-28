@@ -19,7 +19,7 @@ Why Go?
 
 Simplicity
     25 Keywords
-        package, func, struct, interface, go, var, if, else, switch, case, for, select, chan, make, new, close, map
+        package, func, struct, interface, defer, go, var, if, else, switch, case, for, select, chan, make, new, close, map
     No classes
     No Inheritance ( prefer composition over Inheritance)
     No access modifiers

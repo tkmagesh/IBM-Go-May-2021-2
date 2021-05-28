@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 func main() {
 	//helloWorld()
@@ -12,8 +15,13 @@ func main() {
 		quotient, remainder := divide(21, 5)
 		fmt.Println(quotient, remainder)
 	*/
-	quotient, _ := divide(21, 5)
-	fmt.Println(quotient)
+	quotient, _, err := divide(21, 0)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(quotient)
+	}
+
 }
 
 /*
@@ -53,7 +61,19 @@ func divide(x, y int) (int, int) {
 }
 */
 
+/*
 func divide(x, y int) (quotient int, remainder int) {
+	quotient = x / y
+	remainder = x % y
+	return
+}
+*/
+
+func divide(x, y int) (quotient int, remainder int, err error) {
+	if y == 0 {
+		err = errors.New("Invalid argument. Cannot divide by zero")
+		return
+	}
 	quotient = x / y
 	remainder = x % y
 	return
