@@ -79,8 +79,13 @@ func main() {
 	*/
 
 	name, msg := "Magesh", "Hi"
-	fmt.Println(msg, name)
+	//fmt.Println(msg, name)
+	/*
+		output := fmt.Sprintf("%s %s!", msg, name)
+		fmt.Printf("The generated msg is %q \n", output)
+	*/
 
+	fmt.Printf("The generated msg is \"%s %s!\" \n", msg, name)
 }
 
 //other functions

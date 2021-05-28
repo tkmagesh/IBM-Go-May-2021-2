@@ -69,3 +69,6 @@ data types in go
 
     byte (alias for uint8)
     rune (alias for int32, represents 1 unicode character)
+
+programming constructs
+    if else, switch, for, func
