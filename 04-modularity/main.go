@@ -4,6 +4,7 @@ import (
 	"fmt"
 	calc "modularity-demo/calculator"
 	"modularity-demo/calculator/utils"
+	"strconv"
 
 	"dummyModule/dummy"
 
@@ -11,8 +12,8 @@ import (
 )
 
 func main() {
-	fmt.Println(calc.Add(100, 200))
-	fmt.Println(calc.Subtract(100, 200))
+	color.Yellow(strconv.Itoa(calc.Add(100, 200)))
+	color.Green(strconv.Itoa(calc.Subtract(100, 200)))
 	color.Red(fmt.Sprintf("Operation count : %d\n", calc.GetOperationCount()))
 	utils.SayHi()
 	dummy.WhoAmI()
