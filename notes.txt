@@ -72,3 +72,5 @@ data types in go
 
 programming constructs
     if else, switch, for, func
+
+Find the first 50 prime numbers starting from 2
