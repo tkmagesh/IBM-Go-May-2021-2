@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	calc "modularity-demo/calculator"
-	"modularity-demo/utils"
+	"modularity-demo/calculator/utils"
 
 	"dummyModule/dummy"
 
