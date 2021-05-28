@@ -1,0 +1,60 @@
+package main
+
+import "fmt"
+
+func main() {
+	//helloWorld()
+	//helloWorld("Hello World!")
+	fmt.Println(add(100, 200))
+	//fmt.Println(divide(21, 5))
+
+	/*
+		quotient, remainder := divide(21, 5)
+		fmt.Println(quotient, remainder)
+	*/
+	quotient, _ := divide(21, 5)
+	fmt.Println(quotient)
+}
+
+/*
+func helloWorld() {
+	fmt.Println("Hello World!")
+}
+*/
+
+/*
+func helloWorld(msg string) {
+	fmt.Println(msg)
+}
+*/
+
+/*
+func add(x int, y int) int {
+	return x + y
+}
+*/
+
+/*
+func add(x, y int) int {
+	return x + y
+}
+*/
+
+func add(x, y int) (result int) {
+	result = x + y
+	return
+}
+
+/*
+func divide(x, y int) (int, int) {
+	quotient := x / y
+	remainder := x % y
+	return quotient, remainder
+}
+*/
+
+func divide(x, y int) (quotient int, remainder int) {
+	quotient = x / y
+	remainder = x % y
+	return
+}
