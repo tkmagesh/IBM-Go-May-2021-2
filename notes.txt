@@ -80,3 +80,17 @@ Higher Order Functions
         assign functions to variables
         pass functions are arguments to other functions
         return a function as return result from another function
+
+Modules
+    to create a module
+        go mod init <module_name>
+
+    to use a third party module
+        go get github.com/fatih/color
+
+    to update a third party module
+        go get -u github.com/fatih/color
+
+    to include a private module (not in the respository)
+        in the go.mod file, add the following line
+            replace dummyModule => ../dummyModule
