@@ -3,15 +3,18 @@ package main
 import "fmt"
 
 func main() {
-	x, y := 100, 200
-	addResult := add(x, y)
-	fmt.Println("addResult = ", addResult)
-	subResult := subtract(x, y)
-	fmt.Println("subResult = ", subResult)
-	mulResult := multiply(x, y)
-	fmt.Println("mulResult = ", mulResult)
-	divResult := divide(x, y)
-	fmt.Println("divResult = ", divResult)
+	loggedOper("Add", add)(100, 200)
+	loggedOper("Subtract", subtract)(100, 200)
+	loggedOper("Multiply", multiply)(100, 200)
+	loggedOper("Divide", divide)(100, 200)
+}
+
+func loggedOper(operName string, oper func(int, int) int) func(int, int) {
+	return func(x, y int) {
+		fmt.Printf("Proessing %d and %d\n", x, y)
+		result := oper(x, y)
+		fmt.Printf("%s Result = %d\n", operName, result)
+	}
 }
 
 func add(x, y int) int {
@@ -33,7 +36,9 @@ func divide(x, y int) int {
 /*
 DONOT modify the add, subtract, multiply, divide functions
 DONOT repeat the logic for printing "processing 100 and 200"
+
 desired output
+
 processing 100 and 200
 addResult =  300
 processing 100 and 200
