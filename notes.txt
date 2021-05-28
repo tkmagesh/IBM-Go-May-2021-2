@@ -74,3 +74,9 @@ programming constructs
     if else, switch, for, func
 
 Find the first 50 prime numbers starting from 2
+
+Higher Order Functions
+    treat functions like data
+        assign functions to variables
+        pass functions are arguments to other functions
+        return a function as return result from another function
