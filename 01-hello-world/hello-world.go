@@ -1,8 +1,9 @@
 //package declaration
 package main
 
-//import dependent packages
 import "fmt"
+
+//import dependent packages
 
 //package level variables
 
@@ -10,7 +11,76 @@ import "fmt"
 
 //main function
 func main() {
-	fmt.Println("Hello world!")
+
+	/*
+		var msg string
+		msg = "Hello world!"
+		fmt.Println(msg)
+	*/
+
+	/*
+		var msg string = "Hello world!"
+		fmt.Println(msg)
+	*/
+	/*
+		var msg = "Hello world!"
+		fmt.Println(msg)
+	*/
+
+	//the following declaration is valid only in a function
+	/*
+		msg := "Hello world!"
+		fmt.Println(msg)
+	*/
+
+	//declaring more than one variable
+	/*
+		var name string
+		var msg string
+		name = "Magesh"
+		msg = "Hi"
+		fmt.Println(msg, name)
+	*/
+
+	/*
+		var (
+			name string
+			msg  string
+		)
+		name = "Magesh"
+		msg = "Hi"
+		fmt.Println(msg, name)
+	*/
+
+	/*
+		var (
+			name, msg string
+		)
+		name = "Magesh"
+		msg = "Hi"
+		fmt.Println(msg, name)
+	*/
+
+	/*
+		var name, msg string
+		name = "Magesh"
+		msg = "Hi"
+		fmt.Println(msg, name)
+	*/
+
+	/*
+		var name, msg string = "Magesh", "Hi"
+		fmt.Println(msg, name)
+	*/
+
+	/*
+		var name, msg = "Magesh", "Hi"
+		fmt.Println(msg, name)
+	*/
+
+	name, msg := "Magesh", "Hi"
+	fmt.Println(msg, name)
+
 }
 
 //other functions
