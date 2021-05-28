@@ -3,7 +3,10 @@ package main
 import "fmt"
 
 func main() {
-	loggedOper("Add", add)(100, 200)
+	loggedAdd := loggedOper("Add", add)
+	loggedAdd(100, 200)
+	loggedAdd(10, 20)
+
 	loggedOper("Subtract", subtract)(100, 200)
 	loggedOper("Multiply", multiply)(100, 200)
 	loggedOper("Divide", divide)(100, 200)
