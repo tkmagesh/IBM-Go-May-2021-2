@@ -1,0 +1,71 @@
+Schedule
+    Commence : 9:30
+    Tea Break : 11:00 (20 mins)
+    Lunch Break : 13:00 (60 mins)
+    Tea Break : 15:30 (20 mins)
+    Wind up : 17:30 
+
+Your Name
+Total Experience
+Primary Skillset
+Experience in Golang (if any)
+
+
+Why Go?
+    Better syntax
+    Performance
+    Multithreading is easier
+    Backedup Google
+
+Simplicity
+    25 Keywords
+        package, func, struct, interface, go, var, if, else, switch, case, for, select, chan, make, new, close, map
+    No classes
+    No Inheritance ( prefer composition over Inheritance)
+    No access modifiers
+    No exceptions (only errors)
+
+Close to hardware
+    - Performance
+
+Built for concurrency
+    - Language features for concurrency
+        go, chan, select, close
+    - Builtin scheduler
+    - No exceptions (only errors)
+    - Efficient
+        1000s of goroutines in 1 single thread
+
+
+golang.org
+visual studio code (http://code.visualstudio.com)
+
+go run hello-world.go
+    OR
+go build hello-world.go
+./hello-world
+
+data types in go
+    bool
+    string
+
+    int
+    int8
+    int16
+    int32
+    int64
+
+    uint
+    uint8
+    uint16
+    uint32
+    uint64
+
+    float32
+    float64
+
+    complex64 (real float32, imaginary float32)
+    complex126 (real float64, imaginary float64)
+
+    byte (alias for uint8)
+    rune (alias for int32, represents 1 unicode character)
