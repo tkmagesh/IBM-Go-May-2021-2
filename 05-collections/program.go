@@ -13,7 +13,7 @@ func main() {
 	var nos = [...]int{4, 1, 5, 2, 3}
 	fmt.Println(nos)
 	fmt.Println(len(nos))
-
+	fmt.Println("Slice of integers => ", nos)
 	//iteration
 	/*
 		for i := 0; i < len(nos); i++ {
