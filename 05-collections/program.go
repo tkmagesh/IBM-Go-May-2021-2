@@ -103,4 +103,9 @@ func main() {
 	//removing an item from the map
 	delete(cityRanks, "Mysuru")
 	fmt.Println("After deleting 'Mysuru', cityRanks => ", cityRanks)
+
+	fmt.Println("Enter the operands")
+	no1, no2 := 0, 0
+	fmt.Scanf("%d %d\n", &no1, &no2)
+	fmt.Println("Operands => ", no1, no2)
 }

@@ -113,11 +113,25 @@ Collections
         collection of key/value pairs
         key has to be unique
         the datatype of key & value can be defined
-        
+
 
 Assignment
 Find out the list of primeNumbers and the list of Even numbers from a list of 50 random numbers
     - 
-
+Create a CLI based calculator
+    Display a menu
+        1. Add
+        2. Subtract
+        3. Multiply
+        4. Divide
+        5. Exit
+    If the user enter any choice other than 1 - 4
+        exit from the application
+    else
+        accept two operands from the user
+        perform the selected operation
+        print the result
+        display the menu once again
+    
 
 
