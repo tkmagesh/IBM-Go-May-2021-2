@@ -134,4 +134,6 @@ Create a CLI based calculator
         display the menu once again
     
 
+Object = encapsulation of state & behavior
+
 
