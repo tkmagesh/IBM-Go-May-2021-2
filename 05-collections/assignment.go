@@ -7,7 +7,7 @@ import (
 
 func main() {
 	//generate random numbers
-	randomNos := generateRandomNos()
+	randomNos := generateRandomNos(20)
 	fmt.Println("Random nos => ", randomNos)
 
 	//find out the even numbers
@@ -19,20 +19,21 @@ func main() {
 	//primeNos := filterPrimeNos(randomNos)
 	primeNos := filter(randomNos, isPrime)
 	fmt.Println("Prime Nos => ", primeNos)
+
 }
 
-func generateRandomNos() []int {
-	randomNos := [50]int{}
-	for i := 0; i < 50; i++ {
+func generateRandomNos(count int) []int {
+	randomNos := make([]int, count)
+	for i := 0; i < count; i++ {
 		randomNos[i] = rand.Intn(100)
 	}
 	return randomNos[:]
 }
 
-func filter(randomNos []int, criteria func(int) bool) []int {
+func filter(randomNos []int, predicate func(int) bool) []int {
 	result := []int{}
 	for _, randomNo := range randomNos {
-		if criteria(randomNo) {
+		if predicate(randomNo) {
 			result = append(result, randomNo)
 		}
 	}
@@ -46,14 +47,13 @@ func isEven(no int) bool {
 func isPrime(no int) bool {
 	if no <= 2 {
 		return true
-	} else {
-		for i := 2; i <= (no / 2); i++ {
-			if no%i == 0 {
-				return false
-			}
-		}
-		return true
 	}
+	for i := 2; i <= (no / 2); i++ {
+		if no%i == 0 {
+			return false
+		}
+	}
+	return true
 }
 
 /*
