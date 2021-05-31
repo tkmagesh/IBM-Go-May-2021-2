@@ -26,7 +26,7 @@ func main() {
 	//p1 := Product{100, "Pen", 10, 100, "Stationary"}
 	p1 := Product{Id: 100, Name: "Pen", Cost: 10, Units: 100, Category: "Stationary"}
 	fmt.Println(p1)
-	applyDiscount(&p1, 10)
+	p1.applyDiscount(10)
 	fmt.Printf("After applying 10%% discount, product = %v\n", p1)
 
 	/* grapes := PerishableProduct{product: Product{102, "Grapes", 60, 50, "Food"}, Expiry: "2 Days"} */
@@ -40,7 +40,7 @@ func main() {
 	grapes := NewPerishableProduct(102, "Grapes", 60, 50, "Food", "2 Days")
 	fmt.Println(grapes.Cost)
 
-	applyDiscount(&grapes.Product, 20)
+	grapes.applyDiscount(20)
 	fmt.Println(grapes.Cost)
 
 	products := make([]Product, 5)
@@ -142,10 +142,14 @@ func (product Product) format() string {
 	return fmt.Sprintf("Id = %d, Name = %s, Cost = %v, Units = %d, Category = %s", product.Id, product.Name, product.Cost, product.Units, product.Category)
 }
 
-func applyDiscount(productPtr *Product, percent float32) {
+func (productPtr *Product) applyDiscount(percent float32) {
 	productPtr.Cost = productPtr.Cost * ((100 - percent) / 100)
 }
 
 func NewPerishableProduct(id int, name string, cost float32, units int, category string, expiry string) PerishableProduct {
 	return PerishableProduct{Product{id, name, cost, units, category}, expiry}
+}
+
+func (productPtr *PerishableProduct) applyDiscount(percent float32) {
+	productPtr.Cost = productPtr.Cost * ((100 - percent) / 100)
 }
