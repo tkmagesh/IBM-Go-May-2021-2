@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
 )
 
 func main() {
@@ -67,11 +66,41 @@ func main() {
 	newNames[0] = "Sanjay"
 	fmt.Println(names[0])
 
-	fmt.Println("5 random numbers")
-	fmt.Println(rand.Intn(100))
-	fmt.Println(rand.Intn(100))
-	fmt.Println(rand.Intn(100))
-	fmt.Println(rand.Intn(100))
-	fmt.Println(rand.Intn(100))
+	/*
+		fmt.Println("5 random numbers")
+		fmt.Println(rand.Intn(100))
+		fmt.Println(rand.Intn(100))
+		fmt.Println(rand.Intn(100))
+		fmt.Println(rand.Intn(100))
+		fmt.Println(rand.Intn(100))
+	*/
 
+	//map
+	cityRanks := map[string]int{
+		"Mysuru":    2,
+		"Bengaluru": 5,
+		"Udupi":     1,
+	}
+	fmt.Println("City Ranks => ")
+	for city, rank := range cityRanks {
+		fmt.Printf("City : %s - Rank : %d\n", city, rank)
+	}
+
+	fmt.Println("Rank of Bengaluru => ", cityRanks["Bengaluru"])
+
+	cityRanks["Mangaluru"] = 3
+	fmt.Println("After adding Mangaluru, cityRanks => ", cityRanks)
+
+	//checking if a key exists in the map
+
+	//cityRanks["Chennai"] = 6
+	if rank, exists := cityRanks["Chennai"]; exists {
+		fmt.Println("Rank of Chennai = ", rank)
+	} else {
+		fmt.Println("Chennai is not ranked yet!")
+	}
+
+	//removing an item from the map
+	delete(cityRanks, "Mysuru")
+	fmt.Println("After deleting 'Mysuru', cityRanks => ", cityRanks)
 }

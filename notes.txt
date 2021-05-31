@@ -110,7 +110,10 @@ Collections
         size of the array - using the len function
         Can use the 'range' construct to iterate through an array as well 
     Map
-
+        collection of key/value pairs
+        key has to be unique
+        the datatype of key & value can be defined
+        
 
 Assignment
 Find out the list of primeNumbers and the list of Even numbers from a list of 50 random numbers
