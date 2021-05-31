@@ -137,3 +137,10 @@ Create a CLI based calculator
 Object = encapsulation of state & behavior
 
 
+Create a list of products and utility functions for the following
+    addProduct => to add a new product to the list
+    IndexOf => return index of the given product in the list (returns -1 if doesnt exist)
+    Includes => return true/false depending on whether the given product exists in the list
+    Any => return true if ANY of the product satisfies the given criteria, else false
+    All => return true if ALL products in the list satisfies the given criteria, elase false
+    Filter => return the list of products that satisfies the given criteria
