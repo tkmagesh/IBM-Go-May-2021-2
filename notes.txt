@@ -103,6 +103,12 @@ Collections
         size of the array - using the len function
         Can use the 'range' construct to iterate through an array as well
     Slice
+        Varying size
+        Wrapper for an array
+        All the data must of the same type
+        Values can be accessed using an indexer
+        size of the array - using the len function
+        Can use the 'range' construct to iterate through an array as well 
     Map
 
 
