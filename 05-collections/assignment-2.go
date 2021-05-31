@@ -23,7 +23,8 @@ func main() {
 	for {
 		operationChoice := getUserChoice()
 		if operation, exists := operations[operationChoice]; exists {
-			no1, no2 := getOperands()
+			var no1, no2 int
+			getOperands(&no1, &no2)
 			result := operation(no1, no2)
 			fmt.Println("Result = ", result)
 		} else {
@@ -33,11 +34,9 @@ func main() {
 
 }
 
-func getOperands() (int, int) {
-	no1, no2 := 0, 0
+func getOperands(ptrNo1, ptrNo2 *int) {
 	fmt.Println("Enter the operands")
-	fmt.Scanf("%d %d\n", &no1, &no2)
-	return no1, no2
+	fmt.Scanf("%d %d\n", ptrNo1, ptrNo2)
 }
 
 func getUserChoice() int {
