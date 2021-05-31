@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+)
 
 func main() {
 	//Array
@@ -60,4 +63,15 @@ func main() {
 	newNames = append(newNames, "Philip")
 	fmt.Println("newNames => ", newNames)
 	fmt.Println("names => ", names)
+
+	newNames[0] = "Sanjay"
+	fmt.Println(names[0])
+
+	fmt.Println("5 random numbers")
+	fmt.Println(rand.Intn(100))
+	fmt.Println(rand.Intn(100))
+	fmt.Println(rand.Intn(100))
+	fmt.Println(rand.Intn(100))
+	fmt.Println(rand.Intn(100))
+
 }

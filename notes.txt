@@ -112,3 +112,9 @@ Collections
     Map
 
 
+Assignment
+Find out the list of primeNumbers and the list of Even numbers from a list of 50 random numbers
+    - 
+
+
+
