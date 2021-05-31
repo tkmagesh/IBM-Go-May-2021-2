@@ -127,11 +127,18 @@ func filter(products *[]Product, predicate func(Product) bool) []Product {
 
 func printProducts(products []Product) {
 	for _, product := range products {
-		fmt.Println(format(product))
+		productPtr := &product
+		//fmt.Println(format(productPtr))
+
+		fmt.Println(productPtr.format())
 	}
 }
 
 func format(product Product) string {
+	return fmt.Sprintf("Id = %d, Name = %s, Cost = %v, Units = %d, Category = %s", product.Id, product.Name, product.Cost, product.Units, product.Category)
+}
+
+func (product Product) format() string {
 	return fmt.Sprintf("Id = %d, Name = %s, Cost = %v, Units = %d, Category = %s", product.Id, product.Name, product.Cost, product.Units, product.Category)
 }
 
