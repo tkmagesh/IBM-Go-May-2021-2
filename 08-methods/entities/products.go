@@ -86,12 +86,20 @@ func (list ByName) Less(i, j int) bool {
 	return list.Products[i].Name < list.Products[j].Name
 }
 
+func (products Products) SortByName() {
+	sort.Sort(ByName{products})
+}
+
 type ByCost struct {
 	Products
 }
 
 func (list ByCost) Less(i, j int) bool {
 	return list.Products[i].Cost < list.Products[j].Cost
+}
+
+func (products Products) SortByCost() {
+	sort.Sort(ByCost{products})
 }
 
 type ByUnits struct {
@@ -102,6 +110,10 @@ func (list ByUnits) Less(i, j int) bool {
 	return list.Products[i].Units < list.Products[j].Units
 }
 
+func (products Products) SortByUnits() {
+	sort.Sort(ByUnits{products})
+}
+
 type ByCategory struct {
 	Products
 }
@@ -110,15 +122,6 @@ func (list ByCategory) Less(i, j int) bool {
 	return list.Products[i].Category < list.Products[j].Category
 }
 
-func (products Products) SortBy(attrName string) {
-	switch attrName {
-	case "Name":
-		sort.Sort(ByName{products})
-	case "Cost":
-		sort.Sort(ByCost{products})
-	case "Units":
-		sort.Sort(ByUnits{products})
-	case "Category":
-		sort.Sort(ByCategory{products})
-	}
+func (products Products) SortByCategory() {
+	sort.Sort(ByCategory{products})
 }

@@ -74,18 +74,18 @@ func main() {
 	fmt.Println(products)
 
 	fmt.Println("After sorting by name")
-	products.SortBy("Name")
+	products.SortByName()
 	fmt.Println(products)
 
 	fmt.Println("After sorting by cost")
-	products.SortBy("Cost")
+	products.SortByCost()
 	fmt.Println(products)
 
 	fmt.Println("After sorting by units")
-	products.SortBy("Units")
+	products.SortByUnits()
 	fmt.Println(products)
 
 	fmt.Println("After sorting by category")
-	products.SortBy("Category")
+	products.SortByCategory()
 	fmt.Println(products)
 }
