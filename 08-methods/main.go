@@ -37,12 +37,12 @@ func main() {
 
 	products := entities.Products(productsSlice)
 	fmt.Println("Initial List")
-	products.Print()
+	fmt.Println(products)
 
 	fmt.Println("After adding stylus")
 	stylus := entities.Product{107, "Stylus", 30, 50, "Stationary"}
 	products.AddProduct(stylus)
-	products.Print()
+	fmt.Println(products)
 
 	fmt.Println("Index of stylus = ", products.IndexOf(stylus))
 	nonExistingProduct := entities.Product{}
@@ -59,7 +59,7 @@ func main() {
 
 	costlyProducts := products.Filter(costlyProductPredicate)
 	fmt.Println("Costly products")
-	costlyProducts.Print()
+	fmt.Println(costlyProducts)
 
 	/* costlyStationaryProductPredicate := func(product Product) bool {
 		return product.Category == "Stationary" && product.Cost >= 100

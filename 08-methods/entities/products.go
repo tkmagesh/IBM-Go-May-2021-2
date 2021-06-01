@@ -49,11 +49,10 @@ func (products *Products) Filter(predicate func(Product) bool) Products {
 	return result
 }
 
-func (products Products) Print() {
+func (products Products) String() string {
+	result := ""
 	for _, product := range products {
-		productPtr := &product
-		//fmt.Println(format(productPtr))
-
-		fmt.Println(productPtr.Format())
+		result += fmt.Sprintf("%v\n", product)
 	}
+	return result
 }

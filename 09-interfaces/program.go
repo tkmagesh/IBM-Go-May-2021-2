@@ -17,6 +17,10 @@ func (c Circle) Perimeter() float32 {
 	return 2 * math.Pi * c.Radius
 }
 
+func (c Circle) String() string {
+	return fmt.Sprintf("Shape : Circle, Radius = %v", c.Radius)
+}
+
 type Rectangle struct {
 	Height float32
 	Width  float32
@@ -28,6 +32,10 @@ func (r Rectangle) Area() float32 {
 
 func (r Rectangle) Perimeter() float32 {
 	return 2*r.Height + 2*r.Width
+}
+
+func (r Rectangle) String() string {
+	return fmt.Sprintf("Shape : Rectangle, Height = %v & Width = %v", r.Height, r.Width)
 }
 
 type ShapeWithArea interface {
@@ -64,10 +72,12 @@ func printDimension(shape ShapeWithDimensions) {
 }
 func main() {
 	circle := Circle{Radius: 10}
+	fmt.Println(circle)
 	/* printArea(circle)
 	printPerimeter(circle) */
 	printDimension(circle)
 	rectangle := Rectangle{Height: 12, Width: 15}
+	fmt.Println(rectangle)
 	/* printArea(rectangle)
 	printPerimeter(rectangle) */
 	printDimension(rectangle)
