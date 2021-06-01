@@ -30,10 +30,10 @@ func main() {
 
 	productsSlice := make([]entities.Product, 5)
 	productsSlice[0] = entities.Product{101, "Pen", 5, 50, "Stationary"}
-	productsSlice[1] = entities.Product{105, "Pencil", 2, 100, "Stationary"}
+	productsSlice[1] = entities.Product{103, "Pencil", 2, 100, "Stationary"}
 	productsSlice[2] = entities.Product{102, "Mouse", 100, 20, "Electronics"}
 	productsSlice[3] = entities.Product{104, "Marker", 30, 80, "Stationary"}
-	productsSlice[4] = entities.Product{103, "Charger", 200, 10, "Electronics"}
+	productsSlice[4] = entities.Product{105, "Charger", 200, 10, "Electronics"}
 
 	products := entities.Products(productsSlice)
 	fmt.Println("Initial List")
@@ -64,4 +64,28 @@ func main() {
 	/* costlyStationaryProductPredicate := func(product Product) bool {
 		return product.Category == "Stationary" && product.Cost >= 100
 	} */
+
+	fmt.Println()
+	fmt.Println("Default List")
+	fmt.Println(products)
+
+	fmt.Println("After sorting (default)")
+	products.Sort()
+	fmt.Println(products)
+
+	fmt.Println("After sorting by name")
+	products.SortBy("Name")
+	fmt.Println(products)
+
+	fmt.Println("After sorting by cost")
+	products.SortBy("Cost")
+	fmt.Println(products)
+
+	fmt.Println("After sorting by units")
+	products.SortBy("Units")
+	fmt.Println(products)
+
+	fmt.Println("After sorting by category")
+	products.SortBy("Category")
+	fmt.Println(products)
 }

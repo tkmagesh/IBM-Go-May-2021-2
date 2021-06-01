@@ -144,3 +144,18 @@ Create a list of products and utility functions for the following
     Any => return true if ANY of the product satisfies the given criteria, else false
     All => return true if ALL products in the list satisfies the given criteria, elase false
     Filter => return the list of products that satisfies the given criteria
+
+
+Implement "Sort" functionality for the Products
+    1. Must use the  sort.Sort() for sorting (sort the products by id by default)
+    2. Have provisions so that the user can sort the products by other attributes as well (name, cost, units, category etc)
+
+   
+
+   for i:=0; i < len(list)-1; i++ {
+       for j:=0; j < len(list); j++ {
+           if list[i].Id > list[j].Id {
+               list[i], list[j] = list[j], list[i]
+           }
+       }
+   }

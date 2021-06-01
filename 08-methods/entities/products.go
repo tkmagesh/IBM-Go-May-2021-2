@@ -1,6 +1,9 @@
 package entities
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 type Products []Product
 
@@ -55,4 +58,67 @@ func (products Products) String() string {
 		result += fmt.Sprintf("%v\n", product)
 	}
 	return result
+}
+
+/* methods of 'Interface' interface */
+
+func (products Products) Len() int {
+	return len(products)
+}
+
+func (products Products) Less(i, j int) bool {
+	return products[i].Id < products[j].Id
+}
+
+func (products Products) Swap(i, j int) {
+	products[i], products[j] = products[j], products[i]
+}
+
+func (products Products) Sort() {
+	sort.Sort(products)
+}
+
+type ByName struct {
+	Products
+}
+
+func (list ByName) Less(i, j int) bool {
+	return list.Products[i].Name < list.Products[j].Name
+}
+
+type ByCost struct {
+	Products
+}
+
+func (list ByCost) Less(i, j int) bool {
+	return list.Products[i].Cost < list.Products[j].Cost
+}
+
+type ByUnits struct {
+	Products
+}
+
+func (list ByUnits) Less(i, j int) bool {
+	return list.Products[i].Units < list.Products[j].Units
+}
+
+type ByCategory struct {
+	Products
+}
+
+func (list ByCategory) Less(i, j int) bool {
+	return list.Products[i].Category < list.Products[j].Category
+}
+
+func (products Products) SortBy(attrName string) {
+	switch attrName {
+	case "Name":
+		sort.Sort(ByName{products})
+	case "Cost":
+		sort.Sort(ByCost{products})
+	case "Units":
+		sort.Sort(ByUnits{products})
+	case "Category":
+		sort.Sort(ByCategory{products})
+	}
 }
