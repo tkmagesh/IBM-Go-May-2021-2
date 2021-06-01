@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 func print(msg string) {
 	fmt.Println(msg)
@@ -9,4 +12,10 @@ func print(msg string) {
 func main() {
 	go print("Hello")
 	go print("World")
+	/*
+		var input string
+		fmt.Println("press ENTER to exit")
+		fmt.Scanln(&input)
+	*/
+	time.Sleep(2 * time.Second)
 }
