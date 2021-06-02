@@ -22,7 +22,18 @@ message AverageResponse{
     int64 result = 1;
 }
 
+//server streaming
+message PrimeNumbersRequest{
+    int32 rangeStart = 1;
+    int32 rangeEnd = 2;
+}
+
+message PrimeNumbersResponse{
+    int32 no = 1;
+}
+
 service AppServices {
     rpc Add (CalculatorRequest) returns (CalculatorResponse);
     rpc CalculateAverage (stream AverageRequest) returns(AverageResponse);
+    rpc GeneratePrimes (PrimeNumbersRequest) returns(stream PrimeNumbersResponse);
 }

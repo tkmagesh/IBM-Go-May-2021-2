@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"grpc-app/proto"
+	"io"
 	"log"
 	"time"
 
@@ -49,4 +50,27 @@ func main() {
 		log.Fatalln(err)
 	}
 	fmt.Println("Average : ", avgResponse.GetResult())
+
+	//server streaming
+	fmt.Println()
+	fmt.Println("Generating Prime numbers from 25 to 75 (server streaming)")
+	primeReq := &proto.PrimeNumbersRequest{
+		RangeStart: 25,
+		RangeEnd:   75,
+	}
+	primeNoStream, err := client.GeneratePrimes(context.Background(), primeReq)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	for {
+		res, err := primeNoStream.Recv()
+		if err == io.EOF {
+			fmt.Println("All prime generators are generated")
+			break
+		}
+		if err != nil {
+			log.Fatalln(err)
+		}
+		fmt.Println("Prime No : ", res.GetNo())
+	}
 }

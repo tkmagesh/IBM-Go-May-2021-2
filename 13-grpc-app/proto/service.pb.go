@@ -222,6 +222,109 @@ func (x *AverageResponse) GetResult() int64 {
 	return 0
 }
 
+//server streaming
+type PrimeNumbersRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	RangeStart int32 `protobuf:"varint,1,opt,name=rangeStart,proto3" json:"rangeStart,omitempty"`
+	RangeEnd   int32 `protobuf:"varint,2,opt,name=rangeEnd,proto3" json:"rangeEnd,omitempty"`
+}
+
+func (x *PrimeNumbersRequest) Reset() {
+	*x = PrimeNumbersRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_service_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *PrimeNumbersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PrimeNumbersRequest) ProtoMessage() {}
+
+func (x *PrimeNumbersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_service_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PrimeNumbersRequest.ProtoReflect.Descriptor instead.
+func (*PrimeNumbersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_service_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *PrimeNumbersRequest) GetRangeStart() int32 {
+	if x != nil {
+		return x.RangeStart
+	}
+	return 0
+}
+
+func (x *PrimeNumbersRequest) GetRangeEnd() int32 {
+	if x != nil {
+		return x.RangeEnd
+	}
+	return 0
+}
+
+type PrimeNumbersResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	No int32 `protobuf:"varint,1,opt,name=no,proto3" json:"no,omitempty"`
+}
+
+func (x *PrimeNumbersResponse) Reset() {
+	*x = PrimeNumbersResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_service_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *PrimeNumbersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PrimeNumbersResponse) ProtoMessage() {}
+
+func (x *PrimeNumbersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_service_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PrimeNumbersResponse.ProtoReflect.Descriptor instead.
+func (*PrimeNumbersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_service_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *PrimeNumbersResponse) GetNo() int32 {
+	if x != nil {
+		return x.No
+	}
+	return 0
+}
+
 var File_proto_service_proto protoreflect.FileDescriptor
 
 var file_proto_service_proto_rawDesc = []byte{
@@ -237,17 +340,30 @@ var file_proto_service_proto_rawDesc = []byte{
 	0x02, 0x6e, 0x6f, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x02, 0x6e, 0x6f, 0x22, 0x29, 0x0a,
 	0x0f, 0x41, 0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
 	0x12, 0x16, 0x0a, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03,
-	0x52, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x32, 0x8e, 0x01, 0x0a, 0x0b, 0x41, 0x70, 0x70,
-	0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x12, 0x3a, 0x0a, 0x03, 0x41, 0x64, 0x64, 0x12,
-	0x18, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x61, 0x6c, 0x63, 0x75, 0x6c, 0x61, 0x74,
-	0x6f, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x19, 0x2e, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x2e, 0x43, 0x61, 0x6c, 0x63, 0x75, 0x6c, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x43, 0x0a, 0x10, 0x43, 0x61, 0x6c, 0x63, 0x75, 0x6c, 0x61, 0x74,
-	0x65, 0x41, 0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x12, 0x15, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x2e, 0x41, 0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
-	0x16, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x41, 0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x28, 0x01, 0x42, 0x08, 0x5a, 0x06, 0x2f, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x52, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0x51, 0x0a, 0x13, 0x50, 0x72, 0x69, 0x6d,
+	0x65, 0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
+	0x1e, 0x0a, 0x0a, 0x72, 0x61, 0x6e, 0x67, 0x65, 0x53, 0x74, 0x61, 0x72, 0x74, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x05, 0x52, 0x0a, 0x72, 0x61, 0x6e, 0x67, 0x65, 0x53, 0x74, 0x61, 0x72, 0x74, 0x12,
+	0x1a, 0x0a, 0x08, 0x72, 0x61, 0x6e, 0x67, 0x65, 0x45, 0x6e, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x05, 0x52, 0x08, 0x72, 0x61, 0x6e, 0x67, 0x65, 0x45, 0x6e, 0x64, 0x22, 0x26, 0x0a, 0x14, 0x50,
+	0x72, 0x69, 0x6d, 0x65, 0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x6e, 0x6f, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52,
+	0x02, 0x6e, 0x6f, 0x32, 0xdb, 0x01, 0x0a, 0x0b, 0x41, 0x70, 0x70, 0x53, 0x65, 0x72, 0x76, 0x69,
+	0x63, 0x65, 0x73, 0x12, 0x3a, 0x0a, 0x03, 0x41, 0x64, 0x64, 0x12, 0x18, 0x2e, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x2e, 0x43, 0x61, 0x6c, 0x63, 0x75, 0x6c, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x19, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x61, 0x6c,
+	0x63, 0x75, 0x6c, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x43, 0x0a, 0x10, 0x43, 0x61, 0x6c, 0x63, 0x75, 0x6c, 0x61, 0x74, 0x65, 0x41, 0x76, 0x65, 0x72,
+	0x61, 0x67, 0x65, 0x12, 0x15, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x41, 0x76, 0x65, 0x72,
+	0x61, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x16, 0x2e, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x2e, 0x41, 0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x28, 0x01, 0x12, 0x4b, 0x0a, 0x0e, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65,
+	0x50, 0x72, 0x69, 0x6d, 0x65, 0x73, 0x12, 0x1a, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x50,
+	0x72, 0x69, 0x6d, 0x65, 0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x1a, 0x1b, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x50, 0x72, 0x69, 0x6d, 0x65,
+	0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x30,
+	0x01, 0x42, 0x08, 0x5a, 0x06, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x33,
 }
 
 var (
@@ -262,20 +378,24 @@ func file_proto_service_proto_rawDescGZIP() []byte {
 	return file_proto_service_proto_rawDescData
 }
 
-var file_proto_service_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_proto_service_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_proto_service_proto_goTypes = []interface{}{
-	(*CalculatorRequest)(nil),  // 0: proto.CalculatorRequest
-	(*CalculatorResponse)(nil), // 1: proto.CalculatorResponse
-	(*AverageRequest)(nil),     // 2: proto.AverageRequest
-	(*AverageResponse)(nil),    // 3: proto.AverageResponse
+	(*CalculatorRequest)(nil),    // 0: proto.CalculatorRequest
+	(*CalculatorResponse)(nil),   // 1: proto.CalculatorResponse
+	(*AverageRequest)(nil),       // 2: proto.AverageRequest
+	(*AverageResponse)(nil),      // 3: proto.AverageResponse
+	(*PrimeNumbersRequest)(nil),  // 4: proto.PrimeNumbersRequest
+	(*PrimeNumbersResponse)(nil), // 5: proto.PrimeNumbersResponse
 }
 var file_proto_service_proto_depIdxs = []int32{
 	0, // 0: proto.AppServices.Add:input_type -> proto.CalculatorRequest
 	2, // 1: proto.AppServices.CalculateAverage:input_type -> proto.AverageRequest
-	1, // 2: proto.AppServices.Add:output_type -> proto.CalculatorResponse
-	3, // 3: proto.AppServices.CalculateAverage:output_type -> proto.AverageResponse
-	2, // [2:4] is the sub-list for method output_type
-	0, // [0:2] is the sub-list for method input_type
+	4, // 2: proto.AppServices.GeneratePrimes:input_type -> proto.PrimeNumbersRequest
+	1, // 3: proto.AppServices.Add:output_type -> proto.CalculatorResponse
+	3, // 4: proto.AppServices.CalculateAverage:output_type -> proto.AverageResponse
+	5, // 5: proto.AppServices.GeneratePrimes:output_type -> proto.PrimeNumbersResponse
+	3, // [3:6] is the sub-list for method output_type
+	0, // [0:3] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -335,6 +455,30 @@ func file_proto_service_proto_init() {
 				return nil
 			}
 		}
+		file_proto_service_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*PrimeNumbersRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_service_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*PrimeNumbersResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -342,7 +486,7 @@ func file_proto_service_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_proto_service_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -370,6 +514,7 @@ const _ = grpc.SupportPackageIsVersion6
 type AppServicesClient interface {
 	Add(ctx context.Context, in *CalculatorRequest, opts ...grpc.CallOption) (*CalculatorResponse, error)
 	CalculateAverage(ctx context.Context, opts ...grpc.CallOption) (AppServices_CalculateAverageClient, error)
+	GeneratePrimes(ctx context.Context, in *PrimeNumbersRequest, opts ...grpc.CallOption) (AppServices_GeneratePrimesClient, error)
 }
 
 type appServicesClient struct {
@@ -423,10 +568,43 @@ func (x *appServicesCalculateAverageClient) CloseAndRecv() (*AverageResponse, er
 	return m, nil
 }
 
+func (c *appServicesClient) GeneratePrimes(ctx context.Context, in *PrimeNumbersRequest, opts ...grpc.CallOption) (AppServices_GeneratePrimesClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_AppServices_serviceDesc.Streams[1], "/proto.AppServices/GeneratePrimes", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &appServicesGeneratePrimesClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type AppServices_GeneratePrimesClient interface {
+	Recv() (*PrimeNumbersResponse, error)
+	grpc.ClientStream
+}
+
+type appServicesGeneratePrimesClient struct {
+	grpc.ClientStream
+}
+
+func (x *appServicesGeneratePrimesClient) Recv() (*PrimeNumbersResponse, error) {
+	m := new(PrimeNumbersResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // AppServicesServer is the server API for AppServices service.
 type AppServicesServer interface {
 	Add(context.Context, *CalculatorRequest) (*CalculatorResponse, error)
 	CalculateAverage(AppServices_CalculateAverageServer) error
+	GeneratePrimes(*PrimeNumbersRequest, AppServices_GeneratePrimesServer) error
 }
 
 // UnimplementedAppServicesServer can be embedded to have forward compatible implementations.
@@ -438,6 +616,9 @@ func (*UnimplementedAppServicesServer) Add(context.Context, *CalculatorRequest) 
 }
 func (*UnimplementedAppServicesServer) CalculateAverage(AppServices_CalculateAverageServer) error {
 	return status.Errorf(codes.Unimplemented, "method CalculateAverage not implemented")
+}
+func (*UnimplementedAppServicesServer) GeneratePrimes(*PrimeNumbersRequest, AppServices_GeneratePrimesServer) error {
+	return status.Errorf(codes.Unimplemented, "method GeneratePrimes not implemented")
 }
 
 func RegisterAppServicesServer(s *grpc.Server, srv AppServicesServer) {
@@ -488,6 +669,27 @@ func (x *appServicesCalculateAverageServer) Recv() (*AverageRequest, error) {
 	return m, nil
 }
 
+func _AppServices_GeneratePrimes_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(PrimeNumbersRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(AppServicesServer).GeneratePrimes(m, &appServicesGeneratePrimesServer{stream})
+}
+
+type AppServices_GeneratePrimesServer interface {
+	Send(*PrimeNumbersResponse) error
+	grpc.ServerStream
+}
+
+type appServicesGeneratePrimesServer struct {
+	grpc.ServerStream
+}
+
+func (x *appServicesGeneratePrimesServer) Send(m *PrimeNumbersResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
 var _AppServices_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "proto.AppServices",
 	HandlerType: (*AppServicesServer)(nil),
@@ -502,6 +704,11 @@ var _AppServices_serviceDesc = grpc.ServiceDesc{
 			StreamName:    "CalculateAverage",
 			Handler:       _AppServices_CalculateAverage_Handler,
 			ClientStreams: true,
+		},
+		{
+			StreamName:    "GeneratePrimes",
+			Handler:       _AppServices_GeneratePrimes_Handler,
+			ServerStreams: true,
 		},
 	},
 	Metadata: "proto/service.proto",
