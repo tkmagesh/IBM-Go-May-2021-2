@@ -3,6 +3,7 @@ syntax = "proto3";
 package proto;
 option go_package = "/proto";
 
+//request response
 message CalculatorRequest{
     int64 x = 1;
     int64 y = 2;
@@ -12,6 +13,16 @@ message CalculatorResponse{
     int64 result = 1;
 }
 
+//client streaming
+message AverageRequest{
+    int64 no = 1;
+}
+
+message AverageResponse{
+    int64 result = 1;
+}
+
 service AppServices {
     rpc Add (CalculatorRequest) returns (CalculatorResponse);
+    rpc CalculateAverage (stream AverageRequest) returns(AverageResponse);
 }

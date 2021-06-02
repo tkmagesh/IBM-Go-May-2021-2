@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"grpc-app/proto"
 	"log"
+	"time"
 
 	"google.golang.org/grpc"
 )
@@ -25,5 +26,27 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
+
 	fmt.Println(addResult.GetResult())
+
+	//client streaming
+	fmt.Println("Client streaming")
+	data := []int64{30, 10, 20, 40, 50}
+	avgClientStream, err := client.CalculateAverage(context.Background())
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	for _, no := range data {
+		fmt.Println("Sending : ", no)
+		req := &proto.AverageRequest{No: no}
+		avgClientStream.Send(req)
+		time.Sleep(500 * time.Millisecond)
+	}
+
+	avgResponse, err := avgClientStream.CloseAndRecv()
+	if err != nil {
+		log.Fatalln(err)
+	}
+	fmt.Println("Average : ", avgResponse.GetResult())
 }
