@@ -159,3 +159,39 @@ Implement "Sort" functionality for the Products
            }
        }
    }
+
+interprocess communication
+    native
+        Java (RMI)
+        .NET (.NET Remoting)
+    CORBA
+    Web
+        http
+            stateless protocol
+            frequent polling for getting near realtime data from the server
+            text
+        tcp
+        XML 
+        JSON
+
+        HTML5
+            Server Sent Event (one way communication between the server and the client)
+            WebSockets (realtime bidirectional communication )
+
+
+Microservices
+
+gRPC
+    http2 
+    tcp
+    communication patters supported
+        request / response
+        Server streaming
+        Client streaming
+        Client & Server streaming
+    binary format
+    protocol buffers
+
+Installing the tools
+go get -u github.com/golang/protobuf/protoc-gen-go
+go get -u google.golang.org/grpc
