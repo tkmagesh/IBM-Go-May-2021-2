@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 	"io"
+	"log"
 	"os"
-	"strings"
 )
 
 /* Chaining readers  */
@@ -21,25 +21,29 @@ func (alphaReader AlphaReader) Read(p []byte) (int, error) {
 	if len(p) == 0 {
 		return 0, nil
 	}
-	count, err := alphaReader.src.Read(p)
-	fmt.Println(count)
+	inputData := make([]byte, len(p))
+	count, err := alphaReader.src.Read(inputData)
 	if err != nil {
 		return count, err
 	}
-
-	for i := 0; i < len(p); i++ {
-		if (p[i] >= 'A' && p[i] <= 'Z') || (p[i] >= 'a' && p[i] <= 'z') {
-			continue
-		} else {
-			p[i] = 0
+	dataCount := 0
+	for i := 0; i < len(inputData); i++ {
+		if (inputData[i] >= 'A' && inputData[i] <= 'Z') || (inputData[i] >= 'a' && inputData[i] <= 'z') {
+			p[dataCount] = inputData[i]
+			dataCount++
 		}
 	}
-	return count, io.EOF
+	return dataCount, io.EOF
 }
 
 func main() {
-	strReader := strings.NewReader("Hello! How are you?")
-	alphaReader := NewAlphaReader(strReader)
+	//strReader := strings.NewReader("Hello! How are you?")
+	//alphaReader := NewAlphaReader(strReader)
+	fileReader, err := os.Open("./data1.txt")
+	if err != nil {
+		log.Fatalln(err)
+	}
+	alphaReader := NewAlphaReader(fileReader)
 	io.Copy(os.Stdout, alphaReader)
 	fmt.Println()
 }
